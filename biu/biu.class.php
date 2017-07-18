@@ -107,7 +107,7 @@ class biu {
     public static function autoload($class_name){
         $class_name=ltrim(str_replace('\\','/',$class_name),'/');
         $class_file=ROOT_PATH.$class_name.'.class.php';
-        $vendor_class_file=ROOT_PATH.'vendor/'.$class_name.'.class.php';
+        $vendor_class_file=ROOT_PATH.'/biu/vendor/'.$class_name.'.class.php';
         if(file_exists($class_file)){
             require_once($class_file);
         }elseif(file_exists($vendor_class_file)){

@@ -40,6 +40,7 @@ class context {
         echo json_encode(array_merge(['code'=>$code],$arr));
     }
 
+
     /**
      * 输出html内容
      * @param $tpl
@@ -47,10 +48,9 @@ class context {
      */
     public function html($tpl,$arr=[]){
         header('Content-type:text/html;charset=utf-8');
-        $path=ROOT_PATH.$tpl.'.php';
-        if(file_exists($path)){
+        if(file_exists($tpl)){
             extract($arr);
-            require($path);
+            require($tpl);
         }else{
             echo $tpl;
         }

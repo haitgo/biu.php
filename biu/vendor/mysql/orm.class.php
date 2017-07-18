@@ -114,7 +114,7 @@ abstract class orm {
      * 验证规则
      * @return mixed
      */
-    abstract function validate();
+    abstract function bind_match();
 
     /**
      * 绑定arr数据
@@ -123,8 +123,8 @@ abstract class orm {
      * @param array $omit  忽略的字段
      * @return array
      */
-    public function binding($array,$need=[],$omit=[]){
-        $validate=$this->obj->validate();
+    public function bind($array,$need=[],$omit=[]){
+        $validate=$this->obj->bind_match();
         $vars=get_object_vars($this->obj);
         foreach($validate as $name=>$pattens){
             if($omit && in_array($name,$omit)){
@@ -198,7 +198,7 @@ abstract class orm {
      * @param $key
      * @param $value
      */
-    public function reg_patten($key,$value){
+    public function reg_validate($key,$value){
         self::$pattens[$key]=$value;
     }
 
